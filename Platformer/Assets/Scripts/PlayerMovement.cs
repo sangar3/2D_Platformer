@@ -8,25 +8,56 @@ public class PlayerMovement : MonoBehaviour
     public float movespeed;
     public Animator myanim;
     private bool facingRight;
+    private bool attack;
     void Start()
     {
         facingRight = true;
 
     }
 
-    
-    void FixedUpdate()
+    void Update()
+    {
+        HandleInput();
+    }
+
+
+    void FixedUpdate() 
     {
         float horizontal = Input.GetAxis("Horizontal");
         HandleMovement(horizontal);
         flip(horizontal);
+        HandleAttacks();
+        ResetValues();
     }
 
     private void HandleMovement(float horizontal)
     {
-        myrb.velocity = new Vector2(horizontal *movespeed , myrb.velocity.y);
+        if(!this.myanim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        {
+            myrb.velocity = new Vector2(horizontal * movespeed, myrb.velocity.y);
+        }
+       
+
+        myanim.SetFloat("speed", Mathf.Abs(horizontal));
     }
 
+    public void HandleAttacks()
+    {
+        if(attack && !this.myanim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        {
+            myanim.SetTrigger("attack"); //play attack anim
+            myrb.velocity = Vector2.zero;
+        }
+    }
+
+    private void HandleInput()
+    {
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            attack = true;
+
+        }
+    }
     private void flip(float horizontal)
     {
         if(horizontal > 0 && !facingRight || horizontal < 0 && facingRight)
@@ -40,5 +71,10 @@ public class PlayerMovement : MonoBehaviour
 
 
         }
+    }
+
+    private void ResetValues()
+    {
+        attack = false;
     }
 }

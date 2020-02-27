@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myrb: {fileID: 436168516}
-  movespeed: 5
+  movespeed: 10
   myanim: {fileID: 436168514}
 --- !u!95 &436168514 stripped
 Animator:
