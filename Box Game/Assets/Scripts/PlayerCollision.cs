@@ -1,7 +1,8 @@
 ﻿
 using UnityEngine;
-
-public class PlayerCollision : MonoBehaviour {
+using UnityEngine.SceneManagement;
+public class PlayerCollision : MonoBehaviour 
+{
 
     public PlayerMovement movement;
 	void OnCollisionEnter(Collision collisionInfo)
@@ -10,7 +11,8 @@ public class PlayerCollision : MonoBehaviour {
         {
             movement.enabled = false;
             FindObjectOfType<GameManager>().EndGame();
-        
+            SceneManager.LoadScene("gameover");
+
         }
     }
 }

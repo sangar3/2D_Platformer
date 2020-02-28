@@ -1,7 +1,8 @@
 ﻿
 using UnityEngine;
 
-public class EnemeyMovement : MonoBehaviour {
+public class EnemeyMovement : MonoBehaviour 
+{
     public Rigidbody rb;
     public float ForwardForce = 75f;
 	

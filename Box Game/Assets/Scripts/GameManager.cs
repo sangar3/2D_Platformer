@@ -1,7 +1,8 @@
 ﻿
 using UnityEngine;
 using UnityEngine.SceneManagement;//use this when u want to change/restart scene
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour 
+{
     bool gamehasEnded = false;
     public float restartDelay = 1f;
 
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour {
 
     void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("gameover");
     }
 
 
