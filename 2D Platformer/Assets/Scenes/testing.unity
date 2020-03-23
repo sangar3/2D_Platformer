@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -275,6 +276,23 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f103f3b83b2b8145b2a347672158c93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1160938619}
+  farbackground: {fileID: 270509996}
+  middleBackground: {fileID: 99542106}
+  minHeight: -1.5
+  maxHeight: 2.5
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -671,6 +689,7 @@ GameObject:
   - component: {fileID: 1160938620}
   - component: {fileID: 1160938621}
   - component: {fileID: 1160938622}
+  - component: {fileID: 1160938623}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -793,13 +812,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf740bb4ba5a98443a7db14399bb1454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 7.5
-  jumpForce: 15
+  movespeed: 8
+  jumpForce: 12
   theRB: {fileID: 1160938620}
   groundCheckPoint: {fileID: 90501293}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 512
+--- !u!95 &1160938623
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160938617}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f952a78d62397e2478c437ee4eedf390, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1575986987
 GameObject:
   m_ObjectHideFlags: 0
