@@ -11,31 +11,35 @@ public class CameraController : MonoBehaviour
     public float minHeight;
     public float maxHeight;
 
-    private float lastXPos;
 
+
+    private Vector2 lastpos;
 
     void Start()
     {
-        lastXPos = transform.position.x;
+        lastpos = transform.position;
+
 
     }
 
    
     void Update()
     {
-        transform.position = new Vector3(target.position.x, transform.position.y, transform.position.z);
+      
+
+        transform.position = new Vector3(target.position.x, Mathf.Clamp(target.position.y, minHeight, maxHeight), transform.position.z);
 
 
-        float ClampedY = Mathf.Clamp(transform.position.y, minHeight, maxHeight); 
-        transform.position = new Vector3(transform.position.x, ClampedY, transform.position.z);
-        
-        float amountToMoveX = transform.position.x - lastXPos;
+
+       
+        Vector2 amountToMove = new Vector2(transform.position.x - lastpos.x, transform.position.y - lastpos.y);
 
 
-        farbackground.position = farbackground.position + new Vector3(amountToMoveX, 0f, 0f);
-        middleBackground.position += new Vector3(amountToMoveX * .5f, 0f, 0f);
+        farbackground.position = farbackground.position + new Vector3(amountToMove.x, amountToMove.y, 0f);
+        middleBackground.position += new Vector3(amountToMove.x, amountToMove.y, 0f) * .5f;
 
-        lastXPos = transform.position.x;
+        lastpos = transform.position;
+
 
 
     }
