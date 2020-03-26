@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
             canDoubleJump = true;
 
         }
+        
         if(Input.GetButtonDown("Jump")) //jumping 
         {
             if(isGrounded)
