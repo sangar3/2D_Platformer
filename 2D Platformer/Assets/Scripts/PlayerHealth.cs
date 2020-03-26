@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -35,6 +35,10 @@ public class PlayerHealth : MonoBehaviour
         {
             invincibleCounter -= Time.deltaTime;
 
+            if(invincibleCounter <=0)
+            {
+                theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, 1f);
+            }
 
         }
     }
@@ -52,11 +56,13 @@ public class PlayerHealth : MonoBehaviour
 
                 Debug.Log("Youre dead");
                 gameObject.SetActive(false);
+                SceneManager.LoadScene("Gameover");
             }
             else
             {
                 invincibleCounter = invincibleLength;
-                theSR.color = new Color(theSR.color.r, theSR.color.g, )
+                theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, .5f);  //changing alpha color value 
+                PlayerController.instance.KnockBack();
             }
             PlayerUIController.instance.UpdateHealthDisplay();
         }
