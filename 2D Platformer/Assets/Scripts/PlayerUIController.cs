@@ -19,17 +19,8 @@ public class PlayerUIController : MonoBehaviour
     public Sprite heartEmpty;
     public Sprite heartHalf;
 
-    void Start()
-    {
-        
-    }
 
-    
-    void Update()
-    {
-        
-    }
-
+   
 
     public void UpdateHealthDisplay()
     {

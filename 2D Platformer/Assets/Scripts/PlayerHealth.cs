@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class PlayerHealth : MonoBehaviour
 {
-    public static PlayerHealth instance;
+    
     [Header("InvincibilityNumbers")]
     public float invincibleLength;
     private float invincibleCounter;
@@ -13,21 +13,22 @@ public class PlayerHealth : MonoBehaviour
     [Header("HealthNumbers")]
     public int currenthealth;
     public int maxHealth;
-   
+    public static PlayerHealth instance;
     
-    
-    
-    void Start()
-    {
-        currenthealth = maxHealth;
-
-    }
-
     private void Awake()
     {
         instance = this;
 
     }
+
+
+
+    void Start()
+    {
+        currenthealth = maxHealth;
+
+    }
+ 
     
     void Update()
     {
@@ -44,11 +45,11 @@ public class PlayerHealth : MonoBehaviour
     }
 
 
-    public void DealDamage()
+    public void DealDamage(int damage)
     {
         if(invincibleCounter <=0)
         {
-            currenthealth--;
+            currenthealth-= damage;
 
             if (currenthealth <= 0)
             {
@@ -56,7 +57,8 @@ public class PlayerHealth : MonoBehaviour
 
                 Debug.Log("Youre dead");
                 gameObject.SetActive(false);
-                SceneManager.LoadScene("Gameover");
+                LevelManager.instance.RespawnPlayer();
+
             }
             else
             {

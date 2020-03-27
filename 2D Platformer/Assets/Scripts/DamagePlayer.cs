@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class DamagePlayer : MonoBehaviour
 {
-  
+    public int DamageToPlayer;
+
   private void OnTriggerEnter2D(Collider2D other)
   {
         if(other.tag == "Player")
         {
-            Debug.Log("Player hit");
+            Debug.Log(DamageToPlayer + "damage dealt");
 
-            PlayerHealth.instance.DealDamage();
+            PlayerHealth.instance.DealDamage(DamageToPlayer);
             PlayerUIController.instance.UpdateHealthDisplay();
 
         }
