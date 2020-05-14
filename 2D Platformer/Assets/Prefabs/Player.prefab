@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2115524825
-  m_SortingLayer: 1
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 7815371044791450175, guid: d0ff653f4b4d3f14dab1926a9ed3efb6,
     type: 3}
@@ -139,6 +139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movespeed: 8
   jumpForce: 12
+  KnockbackLength: 0
+  KnockbackForce: 0
   theRB: {fileID: 6742639731868565845}
   groundCheckPoint: {fileID: 6742639732936701316}
   whatIsGround:
@@ -175,6 +177,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54b1f443cfa953e4d865b1c4fc5fa1b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deatheffect: {fileID: 8122272047542917052, guid: e4ff4da9ccbb45e41a79bbb0215ec6e2,
+    type: 3}
+  invincibleLength: 0
+  theSR: {fileID: 6742639731868565843}
   currenthealth: 0
   maxHealth: 6
 --- !u!1 &6742639732936701317

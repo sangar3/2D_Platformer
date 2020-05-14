@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [Header("DeathEffect")]
+    public GameObject deatheffect;
     
     [Header("InvincibilityNumbers")]
     public float invincibleLength;
@@ -57,7 +59,10 @@ public class PlayerHealth : MonoBehaviour
 
                 Debug.Log("Youre dead");
                 gameObject.SetActive(false);
+                Instantiate(deatheffect, transform.position, transform.rotation);
                 LevelManager.instance.RespawnPlayer();
+                
+
 
             }
             else
@@ -69,5 +74,17 @@ public class PlayerHealth : MonoBehaviour
             PlayerUIController.instance.UpdateHealthDisplay();
         }
         
+    }
+
+
+    public void HealthPlayer()
+    {
+        currenthealth++;
+        if(currenthealth > maxHealth)
+        {
+            currenthealth = maxHealth;
+        }
+
+        PlayerUIController.instance.UpdateHealthDisplay();
     }
 }

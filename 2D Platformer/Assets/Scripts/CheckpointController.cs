@@ -30,10 +30,7 @@ public class CheckpointController : MonoBehaviour
     }
 
    
-    void Update()
-    {
-        
-    }
+    
 
 
     public void DeactivateCheckpoints()

@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerUIController : MonoBehaviour
+public class PlayerUIController : MonoBehaviour //attached on canvashud
 {
     public static PlayerUIController instance;
-    private void Awake()
-    {
-        instance = this;
-    }
+    [Header("Gem Text")]
+    public Text gemText;
+
 
     [Header("HeartImages")]
     public Image heart1;
@@ -19,8 +18,15 @@ public class PlayerUIController : MonoBehaviour
     public Sprite heartEmpty;
     public Sprite heartHalf;
 
+    void Start()
+    {
+        UpdateGemCount();
 
-   
+    }
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public void UpdateHealthDisplay()
     {
@@ -75,5 +81,12 @@ public class PlayerUIController : MonoBehaviour
                 break;
 
         }
+    }
+
+
+    public void UpdateGemCount()
+    {
+        gemText.text = LevelManager.instance.gemsCollected.ToString();
+
     }
 }
